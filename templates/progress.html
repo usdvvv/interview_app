@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Tracker - AI Interview Pro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional custom styles for progress page */
+        .progress-header {
+            background-color: var(--surface-color);
+            padding: 2rem 1rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .table-container {
+            background-color: var(--surface-color);
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .table-responsive {
+            margin-bottom: 1rem;
+        }
+
+        .sentiment-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .sentiment-positive {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+
+        .sentiment-negative {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+
+        .sentiment-neutral {
+            background-color: #f3f4f6;
+            color: #1f2937;
+        }
+
+        .confidence-score {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin: 0 auto;
+        }
+
+        .search-box {
+            max-width: 400px;
+            margin-bottom: 1rem;
+        }
+
+        .pagination {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .table-responsive {
+                font-size: 0.875rem;
+            }
+            
+            .confidence-score {
+                width: 40px;
+                height: 40px;
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <h1>AI Interview Pro</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="progress.html" class="active">Progress</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container py-4">
+        <!-- Progress Header -->
+        <section class="progress-header text-center">
+            <h2 class="mb-3">Progress Tracker</h2>
+            <p class="text-muted mb-0">Track your interview responses and AI feedback to monitor your improvement over time.</p>
+        </section>
+
+        <!-- Search and Filter Section -->
+        <div class="table-container">
+            <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+                <div class="search-box">
+                    <div class="input-group">
+                        <span class="input-group-text bg-white">
+                            <i class="fas fa-search text-muted"></i>
+                        </span>
+                        <input type="text" id="searchInput" class="form-control" placeholder="Search responses...">
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="filterDropdown" data-bs-toggle="dropdown">
+                        Filter by Category
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">All Categories</a></li>
+                        <li><a class="dropdown-item" href="#">Technical</a></li>
+                        <li><a class="dropdown-item" href="#">Behavioral</a></li>
+                        <li><a class="dropdown-item" href="#">Leadership</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Response Table -->
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="table-light">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Response</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Sentiment</th>
+                            <th scope="col">Sentiment Score</th>
+                            <th scope="col">Relevance</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="responseTableBody">
+                        <!-- Sample table row -->
+                        <tr>
+                            <td>1</td>
+                            <td style="max-width: 300px;">
+                                <div class="text-truncate">
+                                    In my previous role, I led a team of five developers to successfully deliver a critical project under tight deadlines.
+                                </div>
+                            </td>
+                            <td><span class="badge bg-primary">Leadership</span></td>
+                            <td>
+                                <span class="sentiment-badge sentiment-positive">Positive</span>
+                            </td>
+                            <td>
+                                <div class="confidence-score" style="background-color: #dcfce7;">
+                                    92%
+                                </div>
+                            </td>
+                            <td>
+                                <div class="confidence-score" style="background-color: #dbeafe;">
+                                    88%
+                                </div>
+                            </td>
+                            <td>2024-03-15</td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-primary" title="View Details">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <!-- Add more sample rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="text-muted">
+                    Showing <span id="startRange">1</span> to <span id="endRange">10</span> of <span id="totalEntries">50</span> entries
+                </div>
+                <nav aria-label="Response pagination">
+                    <ul class="pagination">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 AI Interview Pro. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchText = e.target.value.toLowerCase();
+            const tableRows = document.getElementById('responseTableBody').getElementsByTagName('tr');
+            
+            Array.from(tableRows).forEach(row => {
+                const responseText = row.getElementsByTagName('td')[1].textContent.toLowerCase();
+                row.style.display = responseText.includes(searchText) ? '' : 'none';
+            });
+        });
+
+        // Initialize tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    </script>
+</body>
+</html>

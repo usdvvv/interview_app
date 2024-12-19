@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Interview Practice</title>
+    <!-- Link to custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Link to a modern font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">AI-Powered Interview Practice</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="#credits">Credits</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Section -->
+    <main class="main-section">
+        <div class="container">
+            <h1>Practice Interviews with AI</h1>
+            <p class="description">Submit your answers and receive instant feedback.</p>
+
+            <!-- Form Section -->
+            <form id="interview-form">
+                <label for="category">Interview Type</label>
+                <select id="category" name="category" required>
+                    <option value="" disabled selected>Select category</option>
+                    <option value="technical">Technical</option>
+                    <option value="behavioral">Behavioral</option>
+                    <option value="general">General</option>
+                </select>
+
+                <label for="response">Your Response</label>
+                <textarea id="response" name="response" placeholder="Type your interview response here..." required></textarea>
+
+                <button type="submit">Get AI Feedback</button>
+            </form>
+
+            <!-- Feedback Section -->
+            <div id="feedback-section">
+                <h2>AI Feedback</h2>
+                <p id="feedback">Your feedback will appear here after submission.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Credits Section -->
+    <section id="credits" class="credits-section">
+        <div class="container">
+            <h2>Credits</h2>
+            <p>Created, designed, and developed by <strong>Seif Eddine Mezned</strong>.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 AI-Powered Interview Practice. All rights reserved.</p>
+    </footer>
+
+    <!-- Link to custom JavaScript -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

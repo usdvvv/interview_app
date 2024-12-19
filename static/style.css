@@ -1,0 +1,177 @@
+/* General Styling */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: #007bff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.navbar .nav-links li {
+    display: inline;
+}
+
+.navbar .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar .nav-links a:hover {
+    color: #dfe6f7;
+}
+
+/* Main Section */
+.main-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 30px;
+}
+
+.main-section h1 {
+    color: #007bff;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.main-section .description {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Form Section */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+form label {
+    font-weight: 500;
+    color: #333;
+}
+
+form select,
+form textarea,
+form button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+form select:focus,
+form textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+form button {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Feedback Section */
+#feedback-section {
+    display: none;
+    margin-top: 30px;
+    padding: 20px;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    background-color: #e9f5ff;
+    color: #333;
+}
+
+#feedback-section h2 {
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+#feedback-section p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Credits Section */
+.credits-section {
+    margin-top: 50px;
+    padding: 30px 20px;
+    background-color: #f1f1f1;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.credits-section h2 {
+    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.credits-section p {
+    font-size: 1.1rem;
+    color: #555;
+    font-weight: 500;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+    margin-top: 50px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}

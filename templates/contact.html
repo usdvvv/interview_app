@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">AI-Powered Interview Practice</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="#credits">Credits</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <main class="main-section">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Feel free to reach out to me through the following:</p>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:{{ contact_info['email'] }}">{{ contact_info['email'] }}</a></li>
+                <li><strong>LinkedIn:</strong> <a href="{{ contact_info['linkedin'] }}" target="_blank">View LinkedIn Profile</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 AI-Powered Interview Practice. All rights reserved.</p>
+    </footer>
+</body>
+</html>
